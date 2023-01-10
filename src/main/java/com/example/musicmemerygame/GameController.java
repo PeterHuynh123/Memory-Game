@@ -11,19 +11,47 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import com.example.musicmemerygame.AudioController.soundEffectEnums;
 
 public class GameController {
     private AudioController audioController;
+
+    private static String[] possibleMoves = {"turtle", "porcupineFish", "jellyFish", "octopus"};
+    private static ArrayList<String> moves = new ArrayList<>();
+
+
     @FXML
     private ImageView IVturtle, IVporcupineFish, IVjellyFish, IVoctopus;
 
     public GameController() throws IOException {
         audioController = new AudioController();
+        generateRandomElementTest();
+        String firstMove = moves.get(0);
+        switch(firstMove) {
+            case "turtle":
+                this.audioController.play(soundEffectEnums.TURTLE);
+                break;
+            case "porcupineFish":
+                this.audioController.play(soundEffectEnums.PORCUPINE);
+                break;
+            case "jellyFish":
+                this.audioController.play(soundEffectEnums.JELLYFISH);
+                break;
+            case "octopus":
+                this.audioController.play(soundEffectEnums.OCTOPUS);
+                break;
+
+        }
+
     }
 
     @FXML
     protected void onClickHandler(MouseEvent e) {
+
+        generateRandomElementTest();
+
         final String id = ((Node) e.getSource()).getId();
         switch (id) {
             case "IVturtle":
@@ -94,7 +122,7 @@ public class GameController {
         id.setTranslateY(translatePos);
     }
 
-    private void decreaseImageSize (ImageView id) {
+    private void decreaseImageSize(ImageView id) {
         double decreasedSize = 200;
         double translatePos = 5;
         id.setFitWidth(decreasedSize);
@@ -102,5 +130,19 @@ public class GameController {
         id.setTranslateX(translatePos);
         id.setTranslateY(translatePos);
     }
+
+    private int getRandInt(int lowerBound, int upperBound) {
+        return (int) (Math.random() * (upperBound - lowerBound + 1) + lowerBound);
+    }
+
+    private void generateRandomElementTest() {
+        int randInt = getRandInt(0, possibleMoves.length - 1);
+        String nextMove = possibleMoves[randInt];
+
+        moves.add(nextMove);
+        System.out.println(moves);
+    }
+
+
 
 }
