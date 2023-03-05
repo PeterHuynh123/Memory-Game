@@ -1,6 +1,5 @@
-# Black Jack
-Made a classic card game using 52 deck of card in javaFx framework
-
+# Music memery
+Recreate music memory game from google
 ## How to run the project
 
 required to run in IntelliJ
