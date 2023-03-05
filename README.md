@@ -7,7 +7,7 @@ required to run in IntelliJ
 
 *If the program doesn't run, use this configuration*
 
-<img src="./screenshot/configuration1.png" width="80%"></img>
+<img src="./screenshot/configuration1.png" width="80%"></img>       
 
 ## Demo
 
