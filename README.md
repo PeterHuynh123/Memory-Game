@@ -1,4 +1,4 @@
-# Music memery
+# Music memory
 Recreate music memory game from google
 ## How to run the project
 
